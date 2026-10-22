@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080817">
+    <title>AI Runner 2.0 | Digital Survival</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="game-shell">
+
+        <header class="topbar">
+            <a class="brand" href="#" id="homeLink">
+                <span class="brand-icon">✦</span>
+                <span>AI<span class="accent">RUNNER</span></span>
+                <span class="version">2.0</span>
+            </a>
+            <span class="status">
+                <span class="status-dot"></span> SYSTEM ONLINE
+            </span>
+        </header>
+
+        <section class="intro">
+            <p class="eyebrow">DIGITAL SURVIVAL PROTOCOL</p>
+            <h1>Survive the <span>Digital World.</span></h1>
+            <p class="subtitle">Run fast. Collect energy. Outsmart the system.</p>
+        </section>
+
+        <section class="game-panel" aria-label="AI Runner game">
+
+            <div class="hud">
+                <div class="hud-item">
+                    <span class="hud-label">SCORE</span>
+                    <span class="hud-value" id="score">000000</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">BEST</span>
+                    <span class="hud-value" id="best">000000</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">COINS</span>
+                    <span class="hud-value coin-value">◆ <span id="coins">0</span></span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">SHIELD</span>
+                    <span class="hud-value" id="shield-status">OFF</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">MODE</span>
+                    <span class="hud-value mode-value" id="mode-display">MEDIUM</span>
+                </div>
+            </div>
+
+            <div class="canvas-wrap">
+                <canvas
+                    id="gameCanvas"
+                    width="960"
+                    height="480"
+                    aria-label="AI Runner game world"
+                    tabindex="0">
+                    Your browser does not support Canvas.
+                </canvas>
+
+                <!-- Main menu and game-over overlay -->
+                <div class="overlay" id="gameOverlay">
+                    <div class="overlay-card">
+
+                        <div class="overlay-symbol" id="overlay-symbol">✦</div>
+
+                        <p class="eyebrow" id="overlay-eyebrow">
+                            DIGITAL SURVIVAL PROTOCOL 02
+                        </p>
+
+                        <h2 id="overlay-title">ENTER THE GRID</h2>
+
+                        <p class="overlay-message" id="overlay-message">
+                            Enter a neon digital world. Dodge hazards,
+                            collect coins, and survive as long as possible.
+                        </p>
+
+                        <div class="menu-content" id="menu-content">
+                            <p class="section-label">SELECT DIFFICULTY</p>
+
+                            <div class="difficulty-options" role="group"
+                                 aria-label="Select game difficulty">
+                                <button class="difficulty-btn"
+                                        data-mode="easy"
+                                        type="button">
+                                    <span class="difficulty-icon">◈</span>
+                                    <strong>EASY</strong>
+                                    <small>Relaxed pace</small>
+                                </button>
+
+                                <button class="difficulty-btn selected"
+                                        data-mode="medium"
+                                        type="button"
+                                        aria-pressed="true">
+                                    <span class="difficulty-icon">◈</span>
+                                    <strong>MEDIUM</strong>
+                                    <small>Balanced run</small>
+                                </button>
+
+                                <button class="difficulty-btn"
+                                        data-mode="hard"
+                                        type="button">
+                                    <span class="difficulty-icon">◈</span>
+                                    <strong>HARD</strong>
+                                    <small>Fast reflexes</small>
+                                </button>
+                            </div>
+
+                            <button class="secondary-btn" id="instructionsBtn"
+                                    type="button">
+                                <span>ⓘ</span> HOW TO PLAY
+                            </button>
+                        </div>
+
+                        <button class="primary-btn" id="startBtn" type="button">
+                            START RUN <span>→</span>
+                        </button>
+
+                        <button class="secondary-btn hidden" id="menuBtn"
+                                type="button">
+                            MAIN MENU
+                        </button>
+
+                        <p class="overlay-hint" id="overlay-hint">
+                            SPACE / ↑ / W TO JUMP
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-footer">
+                <div class="legend">
+                    <span><i class="legend-coin"></i> Coin +10</span>
+                    <span><i class="legend-shield"></i> Shield</span>
+                    <span><i class="legend-hazard"></i> Hazard</span>
+                </div>
+
+                <div class="level-indicator">
+                    <span>THREAT LEVEL</span>
+                    <div class="level-track">
+                        <div id="threatBar"></div>
+                    </div>
+                    <span id="threatLabel">01</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="controls">
+            <div class="control-copy">
+                <h3>YOUR CONTROLS</h3>
+                <p>Jump over hazards and collect everything you can.</p>
+            </div>
+
+            <div class="control-keys">
+                <span class="key">SPACE</span>
+                <span class="key">↑</span>
+                <span class="key-note">JUMP</span>
+            </div>
+
+            <button class="jump-btn" id="jumpBtn" type="button">
+                <span>↑</span> JUMP
+            </button>
+        </section>
+
+        <footer class="page-footer">
+            <span>AI RUNNER // BUILD 2.0</span>
+            <span>POWERED BY YOUR REFLEXES</span>
+        </footer>
+    </main>
+
+    <script src="game.js"></script>
+</body>
+</html>
